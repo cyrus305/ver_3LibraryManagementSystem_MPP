@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="133.0" prefWidth="374.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.MemberController">
+   <children>
+      <Label layoutX="54.0" layoutY="23.0" text="Member Successfully Added! ">
+         <font>
+            <Font name="Comic Sans MS" size="17.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.009708737864077666" startX="0.8737864077669902" startY="0.4174757281553398">
+               <stops>
+                  <Stop color="#903030" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="btnDone" onAction="#closeUP" layoutX="103.0" layoutY="57.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="123.0" text="Done!" />
+   </children>
+</AnchorPane>

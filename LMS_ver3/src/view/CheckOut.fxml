@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="491.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CheckoutController">
+	<children>
+		<Label layoutX="143.0" layoutY="45.0" prefHeight="66.0" prefWidth="460.0" text="Check Out Form" textFill="#c68b8b">
+			<font>
+				<Font name="System Bold" size="45.0" />
+			</font>
+		</Label>
+		<Button fx:id="btnCheckOut" layoutX="159.0" layoutY="361.0" mnemonicParsing="false" onAction="#onCheckOut" prefHeight="63.0" prefWidth="307.0" text="Check Out">
+			<font>
+				<Font name="System Bold" size="29.0" />
+			</font>
+		</Button>
+				<TextField id="memberId" fx:id="memberId" layoutX="268.0" layoutY="200.0" prefHeight="31.0" prefWidth="171.0" />
+				<Label layoutX="163.0" layoutY="205.0" prefHeight="21.0" prefWidth="81.0" text="Member ID:" />
+				<Button fx:id="btnMemberCheck" layoutX="466.0" layoutY="230.0" mnemonicParsing="false" onAction="#search" prefHeight="31.0" prefWidth="100.0" text="Check" />
+				<Label layoutX="163.0" layoutY="259.0" prefHeight="21.0" prefWidth="100.0" text="Books ISBN" />
+				<TextField id="booksISBN" fx:id="booksISBN" layoutX="268.0" layoutY="257.0" prefHeight="31.0" prefWidth="171.0" />
+      <Label fx:id="lblMessage" layoutX="268.0" layoutY="314.0" />
+	</children>
+</AnchorPane>
