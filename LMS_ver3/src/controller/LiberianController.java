@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import model.Book;
 import model.LibraryMember;
 
-public class CheckoutController {
+public class LiberianController {
 
 	@FXML
 	TextField memberId, booksISBN;
@@ -26,8 +26,10 @@ public class CheckoutController {
 
 	MemberService ms;
 	BookService bs;
+	Stage stage = new Stage();
+	Parent root;
 
-	public CheckoutController() {
+	public LiberianController() {
 		// TODO Auto-generated constructor stu
 		ms = new MemberServiceImpl();
 		bs = new BookService();
@@ -37,14 +39,13 @@ public class CheckoutController {
 	}
 
 	public void openCheckout() {
-		Stage libStage = new Stage();
-		Parent root;
+		
 		try {
 			root = FXMLLoader.load(getClass().getResource("../view/CheckOut.fxml"));
-			libStage.setTitle("Checkout");
+			stage.setTitle("Checkout");
 			Scene scene = new Scene(root, 1000, 800);
-			libStage.setScene(scene);
-			libStage.show();
+			stage.setScene(scene);
+			stage.show();
 
 		} catch (IOException e) {
 
@@ -84,4 +85,8 @@ public class CheckoutController {
 		}
 	}
 
+
+	public void openCheckIn(){
+		
+	}
 }
