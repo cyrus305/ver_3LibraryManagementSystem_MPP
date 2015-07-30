@@ -28,7 +28,7 @@ public class AdminController {
 
 	public void EditMember() {
 		try {
-			root = FXMLLoader.load(getClass().getResource("../view/EditMember.fxml"));
+			root = FXMLLoader.load(getClass().getResource("../view/Edit Member.fxml"));
 			stage.setTitle("Edit Member");
 			Scene scene = new Scene(root, 1000, 800);
 			stage.setScene(scene);
