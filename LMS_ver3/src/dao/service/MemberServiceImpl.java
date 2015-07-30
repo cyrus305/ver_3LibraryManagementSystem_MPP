@@ -18,7 +18,6 @@ public class MemberServiceImpl implements MemberService {
 		String memberId = member.getMemberId();
 		memberMap.put(memberId, member);
 		DataAccessFacade.saveToStorage(EnumCollection.StorageType.MEMBERS, memberMap);
-		System.out.println(DataAccessFacade.readFromStorage(EnumCollection.StorageType.MEMBERS));
 	}
 
 	@Override
@@ -32,7 +31,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void editMember(LibraryMember member) throws Exception {
-		// TODO Auto-generated method stub
+		HashMap<String, LibraryMember> memberMap = dataAccess.readMemberMap();
+		String memberId = member.getMemberId();
+		memberMap.remove(memberId);
+		memberMap.put(memberId, member);
+		DataAccessFacade.saveToStorage(EnumCollection.StorageType.MEMBERS, memberMap);
+		System.out.println(dataAccess.readMemberMap());
 
 	}
 

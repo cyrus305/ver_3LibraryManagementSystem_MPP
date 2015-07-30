@@ -6,6 +6,8 @@ import dao.Impl.DataAccessFacade;
 import dao.service.DataAccess;
 import dao.service.MemberService;
 import dao.service.MemberServiceImpl;
+import helper.LibraryException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,7 +21,17 @@ public class MemberController {
 	Label memberIdError;
 	@FXML
 	TextField mbrId;
-	MemberService service = new MemberServiceImpl();
+	// EditMember.fxml
+	@FXML
+	Label lblMemberExists;
+	@FXML
+	TextField txtMemberIdEdit, txtFirstName, txtLastName, txtPhone, txtStreet, txtCity, txtState, txtZip;
+
+	MemberService ms;
+
+	public MemberController() {
+		ms = new MemberServiceImpl();
+	}
 
 	public void addMember() throws Exception {
 		addNewMember(memberID.getText(), firstName.getText(), lastName.getText(), telephone.getText(),
@@ -50,7 +62,7 @@ public class MemberController {
 		HashMap<String, LibraryMember> memberMap = dataAccess.readMemberMap();
 		if (!memberMap.containsKey(memberId)) {
 			memberIdError.setText("");
-			service.saveMember(new LibraryMember(memberId, firstName, lastName, telNumber, addr));
+			ms.saveMember(new LibraryMember(memberId, firstName, lastName, telNumber, addr));
 		} else {
 			memberIdError.setText("Member with Id# " + memberID.getText() + " already exists!");
 		}
@@ -65,9 +77,43 @@ public class MemberController {
 	 * 
 	 */
 	public LibraryMember search(String memberId) throws Exception {
-		MemberService ms = new MemberServiceImpl();
 		System.out.println("searchMember");
 		return ms.searchMember(memberId);
+	}
+
+	public void checkMemberBeforeEdit(ActionEvent e) {
+		try {
+			if (txtMemberIdEdit.getText().equals("") || txtMemberIdEdit.getText() == null) {
+				throw new LibraryException("Member id field cannot be empty!");
+			}
+
+			LibraryMember lm = ms.searchMember(txtMemberIdEdit.getText());
+			lblMemberExists.setText("");
+			txtFirstName.setText(lm.getFirstName());
+			txtLastName.setText(lm.getLastName());
+			txtPhone.setText(lm.getTelephone());
+			txtStreet.setText(lm.getAddress().getStreet());
+			txtCity.setText(lm.getAddress().getCity());
+			txtState.setText(lm.getAddress().getState());
+			txtZip.setText(lm.getAddress().getZip());
+
+		} catch (LibraryException exp) {
+			lblMemberExists.setText(exp.getMessage());
+		}
+	}
+
+	public void saveEditedMember() throws Exception {
+		try {
+			if (txtMemberIdEdit.getText().equals("") || txtMemberIdEdit.getText() == null) {
+				lblMemberExists.setText("Cannot save with empty memberId");
+				throw new LibraryException("Cannot save with empty memberId");
+			}
+			ms.editMember(new LibraryMember(txtMemberIdEdit.getText(), txtFirstName.getText(), txtLastName.getText(),
+					txtPhone.getText(), new Address(txtStreet.getText(), txtCity.getText(), txtState.getText(), txtZip.getText())));
+
+		} catch (LibraryException exp) {
+			
+		}
 	}
 
 }
