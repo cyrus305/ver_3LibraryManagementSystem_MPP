@@ -39,7 +39,7 @@ public class LiberianController {
 	}
 
 	public void openCheckout() {
-		
+
 		try {
 			root = FXMLLoader.load(getClass().getResource("../view/CheckOut.fxml"));
 			stage.setTitle("Checkout");
@@ -61,7 +61,7 @@ public class LiberianController {
 
 	public void onCheckOut(ActionEvent e) throws Exception {
 		check();
-		
+
 	}
 
 	private void check() {
@@ -85,8 +85,19 @@ public class LiberianController {
 		}
 	}
 
+	public void openCheckIn() {
 
-	public void openCheckIn(){
-		
+		try {
+			root = FXMLLoader.load(getClass().getResource("../view/CheckIn.fxml"));
+			stage.setTitle("Check In");
+			Scene scene = new Scene(root, 1000, 800);
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
 	}
 }
