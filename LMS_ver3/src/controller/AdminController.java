@@ -8,21 +8,50 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class AdminController {
-	
-	public void openAddMember(){
-		Stage libStage = new Stage();
-		Parent root;
+	Stage stage = new Stage();
+	Parent root;
+
+	public void openAddMember() {
+		
 		try {
 			root = FXMLLoader.load(getClass().getResource("../view/AddMember.fxml"));
-			libStage.setTitle("Add Member");
+			stage.setTitle("Add Member");
 			Scene scene = new Scene(root, 1000, 800);
-			libStage.setScene(scene);
-			libStage.show();
+			stage.setScene(scene);
+			stage.show();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public void EditMember() {
+		try {
+			root = FXMLLoader.load(getClass().getResource("../view/EditMember.fxml"));
+			stage.setTitle("Edit Member");
+			Scene scene = new Scene(root, 1000, 800);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void AddBook() {
+		try {
+			root = FXMLLoader.load(getClass().getResource("../view/AddBook.fxml"));
+			stage.setTitle("Add Book");
+			Scene scene = new Scene(root, 1000, 800);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }
