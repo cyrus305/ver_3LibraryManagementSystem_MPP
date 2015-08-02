@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1000"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<GridPane alignment="CENTER" layoutX="145.0" layoutY="87.0"
+			prefHeight="559.0" prefWidth="746.0" vgap="25.0">
+			<children>
+				<Label text="First Name" GridPane.columnIndex="0"
+					GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+				<TextField fx:id="txtFirstName" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<TextField fx:id="txtLastName" prefWidth="200.0"
+					GridPane.columnIndex="4" GridPane.rowIndex="1" />
+				<Label text="Last Name" GridPane.columnIndex="3"
+					GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+				<Label text="Bio: " GridPane.halignment="RIGHT"
+					GridPane.rowIndex="2" />
+				<Label text="Phone" GridPane.columnIndex="3"
+					GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+				<TextField fx:id="txtPhone" prefWidth="200.0"
+					GridPane.columnIndex="4" GridPane.rowIndex="2" />
+				<Label prefHeight="46.0" prefWidth="128.0" text="Address:"
+					GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+					<font>
+						<Font name="System Bold" size="31.0" />
+					</font>
+				</Label>
+				<Label text="Street" GridPane.halignment="RIGHT"
+					GridPane.rowIndex="4" />
+				<Label text="City" GridPane.columnIndex="3"
+					GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+				<Label text="State" GridPane.halignment="RIGHT"
+					GridPane.rowIndex="5" />
+				<Label text="Zip" GridPane.columnIndex="3"
+					GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+				<Label text="Authors Informations: " GridPane.columnSpan="2147483647"
+					GridPane.valignment="TOP">
+					<font>
+						<Font name="System Bold" size="22.0" />
+					</font>
+				</Label>
+				<TextField fx:id="txtStreet" GridPane.columnIndex="1"
+					GridPane.rowIndex="4" />
+				<TextField fx:id="txtState" GridPane.columnIndex="1"
+					GridPane.rowIndex="5" />
+				<TextField fx:id="txtCity" GridPane.columnIndex="4"
+					GridPane.rowIndex="4" />
+				<TextField fx:id="txtZip" GridPane.columnIndex="4"
+					GridPane.rowIndex="5" />
+				<TextArea fx:id="txtBio" prefHeight="50.0" prefWidth="191.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="2" />
+			</children>
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0"
+					minWidth="10.0" prefWidth="87.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="332.0"
+					minWidth="10.0" prefWidth="192.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0"
+					minWidth="10.0" prefWidth="70.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0"
+					minWidth="10.0" prefWidth="89.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0"
+					minWidth="10.0" prefWidth="314.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints maxHeight="114.0" minHeight="10.0"
+					prefHeight="114.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="161.0" minHeight="0.0"
+					prefHeight="73.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="207.0" minHeight="10.0"
+					prefHeight="75.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="206.0" minHeight="10.0"
+					prefHeight="33.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="149.0" minHeight="10.0"
+					prefHeight="60.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="96.0" minHeight="10.0"
+					prefHeight="69.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+		</GridPane>
+		<HBox alignment="CENTER" layoutX="45.0" layoutY="178.0"
+			prefHeight="32.0" prefWidth="200.0" />
+		<Button fx:id="btnAddAnother" layoutX="707.0" layoutY="656.0"
+			mnemonicParsing="false" onAction="#GetAuthorData" prefHeight="47.0"
+			prefWidth="182.0" text="Add Another Author">
+			<font>
+				<Font size="16.0" />
+			</font>
+		</Button>
+		<Button fx:id="btnDone" layoutX="431.0" layoutY="693.0"
+			mnemonicParsing="false" prefHeight="62.0" prefWidth="138.0" text="Done">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Button>
+	</children>
+</AnchorPane>
