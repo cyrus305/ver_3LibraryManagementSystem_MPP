@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,11 +24,16 @@ public class LiberianController {
 	TextField memberId, booksISBN;
 	@FXML
 	Label lblMessage;
-
+	@FXML
+	Button btnLogOut;
+	@FXML
+	Button btnMemberCheck;
+	
 	MemberService ms;
 	BookService bs;
 	Stage stage = new Stage();
 	Parent root;
+	
 
 	public LiberianController() {
 		// TODO Auto-generated constructor stu
@@ -100,4 +106,25 @@ public class LiberianController {
 		}
 
 	}
+	
+	public void logOut(){
+		btnLogOut.getScene().getWindow().hide();
+		Stage stage = new Stage();
+		Parent root;
+		try {
+			
+			root = FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"));
+			stage.setTitle("Add Member");
+			Scene scene = new Scene(root, 1000, 800);
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	
+	}
+	
 }

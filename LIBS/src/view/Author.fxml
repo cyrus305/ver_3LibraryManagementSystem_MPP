@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AuthorController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AuthorController">
   <children>
     <GridPane alignment="CENTER" layoutX="45.0" layoutY="28.0" prefHeight="184.0" prefWidth="475.0" vgap="25.0">
       <children>
-        <Label text="firstName" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="First Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
         <TextField fx:id="firstName" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="lastName" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
         <TextField fx:id="credential" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Label text="lastName" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <Label text="credentials" GridPane.rowIndex="2" />
+        <Label text="Last Name" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <Label text="Credentials" GridPane.rowIndex="2" />
         <Label text="phone" GridPane.columnIndex="3" GridPane.rowIndex="2" />
         <TextField fx:id="phone" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <Label text="Address" GridPane.rowIndex="3">
@@ -55,6 +55,11 @@
       </rowConstraints>
     </GridPane>
     <HBox alignment="CENTER" layoutX="45.0" layoutY="178.0" prefHeight="32.0" prefWidth="200.0" />
-  <Button fx:id="OK" layoutX="219.0" layoutY="251.0" mnemonicParsing="false" onAction="#GetAuthorData" text="AddAuthor" />
+  <Button fx:id="OK" layoutX="346.0" layoutY="246.0" mnemonicParsing="false" onAction="#GetAuthorData" text="Add Another Author" />
+      <Button layoutX="145.0" layoutY="246.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" text="Done">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
   </children>
 </AnchorPane>

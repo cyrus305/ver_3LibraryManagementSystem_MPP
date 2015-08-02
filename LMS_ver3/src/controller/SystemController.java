@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.lang.reflect.GenericArrayType;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -30,7 +32,9 @@ import model.User;
 public class SystemController implements ControllerInterface, Initializable {
 	BookService bs;
 	MemberService ms;
-
+	
+	
+	
 	public SystemController() {
 		// TODO Auto-generated constructor stub
 		bs = new BookService();
@@ -45,7 +49,7 @@ public class SystemController implements ControllerInterface, Initializable {
 	@FXML
 	private Label errorMessage;
 
-	public void loginCheck() throws LoginException, IOException {
+	public void loginCheck() throws LoginException {
 		String name = userName.getText();
 		String pwd = password.getText();
 		login(name, pwd);
@@ -57,19 +61,19 @@ public class SystemController implements ControllerInterface, Initializable {
 		errorMessage.setText("");
 	}
 
-	public void login(String name, String paswd) throws LoginException, IOException {
+	public void login(String name, String paswd) throws LoginException {
 		System.out.println(name);
 		System.out.println(paswd);
 		DataAccess da = new DataAccessFacade();
 		HashMap<String, User> map = da.readUserMap();
 		if (!map.containsKey(name)) {
 			errorMessage.setText("*Name not found!");
-			throw new LoginException("Name " + name + " not found");
+			// throw new LoginException("Name " + name + " not found");
 		}
 		String passwordFound = map.get(name).getPassword();
 		if (!passwordFound.equals(paswd)) {
 			errorMessage.setText("*Password not match!");
-			throw new LoginException("Passord does not match password on record");
+			throw new LoginException("Password does not match password on record");
 		}
 		currentAuth = map.get(name).getAuthorization();
 		System.out.println("Successfully login by " + currentAuth.toString());
@@ -204,5 +208,7 @@ public class SystemController implements ControllerInterface, Initializable {
 		System.out.println(da.readMemberMap());
 
 	}
-
 }
+	
+
+	
