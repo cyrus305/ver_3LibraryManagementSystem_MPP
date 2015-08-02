@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import dao.Impl.DataAccessFacade;
@@ -9,8 +10,13 @@ import dao.service.MemberServiceImpl;
 import helper.LibraryException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.Address;
 import model.LibraryMember;
 
@@ -27,6 +33,8 @@ public class MemberController {
 	@FXML
 	TextField txtMemberIdEdit, txtFirstName, txtLastName, txtPhone, txtStreet, txtCity, txtState, txtZip;
 
+	@FXML
+	Button btnLogOut;
 	MemberService ms;
 
 	public MemberController() {
@@ -109,11 +117,31 @@ public class MemberController {
 				throw new LibraryException("Cannot save with empty memberId");
 			}
 			ms.editMember(new LibraryMember(txtMemberIdEdit.getText(), txtFirstName.getText(), txtLastName.getText(),
-					txtPhone.getText(), new Address(txtStreet.getText(), txtCity.getText(), txtState.getText(), txtZip.getText())));
+					txtPhone.getText(),
+					new Address(txtStreet.getText(), txtCity.getText(), txtState.getText(), txtZip.getText())));
 
 		} catch (LibraryException exp) {
-			
+
 		}
+	}
+
+	public void logOut() {
+		btnLogOut.getScene().getWindow().hide();
+		Stage stage = new Stage();
+		Parent root;
+		try {
+
+			root = FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"));
+			stage.setTitle("Add Member");
+			Scene scene = new Scene(root, 1000, 800);
+			stage.setScene(scene);
+			stage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }
