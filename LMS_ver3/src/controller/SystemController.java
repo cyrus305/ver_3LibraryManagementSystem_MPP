@@ -45,7 +45,7 @@ public class SystemController implements ControllerInterface, Initializable {
 	@FXML
 	private Label errorMessage;
 
-	public void loginCheck() throws LoginException, IOException {
+	public void loginCheck() throws LoginException {
 		String name = userName.getText();
 		String pwd = password.getText();
 		login(name, pwd);
@@ -57,19 +57,19 @@ public class SystemController implements ControllerInterface, Initializable {
 		errorMessage.setText("");
 	}
 
-	public void login(String name, String paswd) throws LoginException, IOException {
+	public void login(String name, String paswd) throws LoginException{
 		System.out.println(name);
 		System.out.println(paswd);
 		DataAccess da = new DataAccessFacade();
 		HashMap<String, User> map = da.readUserMap();
 		if (!map.containsKey(name)) {
 			errorMessage.setText("*Name not found!");
-			throw new LoginException("Name " + name + " not found");
+			//throw new LoginException("Name " + name + " not found");
 		}
 		String passwordFound = map.get(name).getPassword();
 		if (!passwordFound.equals(paswd)) {
 			errorMessage.setText("*Password not match!");
-			throw new LoginException("Passord does not match password on record");
+			//throw new LoginException("Password does not match password on record");
 		}
 		currentAuth = map.get(name).getAuthorization();
 		System.out.println("Successfully login by " + currentAuth.toString());
